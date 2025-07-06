@@ -6,10 +6,9 @@ class User {
   User({this.id, required this.name, required this.email});
 
   factory User.fromJson(Map<String, dynamic> json) {
-    final fullName = '${json['first_name'] ?? ''} ${json['last_name'] ?? ''}'.trim();
     return User(
       id: json['id'],
-      name: json['name'] ?? fullName,
+      name: json['name'], // JSONPlaceholder uses 'name' directly
       email: json['email'],
     );
   }
@@ -19,3 +18,4 @@ class User {
     'email': email,
   };
 }
+
